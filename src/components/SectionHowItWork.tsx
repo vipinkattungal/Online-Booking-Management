@@ -21,21 +21,22 @@ const DEMO_DATA: SectionHowItWorkProps["data"] = [
   {
     id: 1,
     img: HIW1img,
-    title: "Book & relax",
-    desc: "Let each trip be an inspirational journey, each room a peaceful space",
+    title: "Student Registration",
+    desc: "Users sign up and fill in Academic details and preferences.",
   },
   {
     id: 2,
     img: HIW2img,
-    title: "Smart checklist",
-    desc: "Let each trip be an inspirational journey, each room a peaceful space",
+    title: "Application Submission and verification",
+    desc: "Students select colleges, upload documents, and submit applications.",
   },
   {
     id: 3,
     img: HIW3img,
-    title: "Save more",
-    desc: "Let each trip be an inspirational journey, each room a peaceful space",
+    title: " Approvals & onboarding", 
+    desc: " Institutions verify details and confirm admission decisions",
   },
+  
 ];
 
 const SectionHowItWork: FC<SectionHowItWorkProps> = ({
@@ -47,7 +48,7 @@ const SectionHowItWork: FC<SectionHowItWorkProps> = ({
       className={`nc-SectionHowItWork  ${className}`}
       data-nc-id="SectionHowItWork"
     >
-      <Heading isCenter desc="Keep calm & travel on">
+      <Heading isCenter desc="Keep Calm & Apply On">
         How it work
       </Heading>
       <div className="mt-20 relative grid md:grid-cols-3 gap-20">

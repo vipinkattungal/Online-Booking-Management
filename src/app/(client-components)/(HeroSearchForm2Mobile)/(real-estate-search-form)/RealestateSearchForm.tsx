@@ -29,7 +29,7 @@ const RealestateSearchForm = () => {
     {
       name: "Chalet House",
       description:
-        "Have a private or shared room in a boutique hotel, hostel, and more",
+        "Have a private or shared room in a boutique  hostel, and more",
       checked: true,
     },
     {

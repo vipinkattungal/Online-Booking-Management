@@ -23,10 +23,10 @@ export interface SectionGridFeaturePlacesProps {
 const SectionGridFeaturePlaces: FC<SectionGridFeaturePlacesProps> = ({
   stayListings = DEMO_DATA,
   gridClass = "",
-  heading = "Featured places to stay",
-  subHeading = "Popular places to stay that Chisfis recommends for you",
+  heading = "Top Colleges to Apply",
+  subHeading = "Popular collages recommends for you",
   headingIsCenter,
-  tabs = ["New York", "Tokyo", "Paris", "London"],
+  tabs = ["All", "Bangalore", "Mysore", "Chennai", "Hydrabad"],
   cardType = "card2",
 }) => {
   const renderCard = (stay: StayDataType) => {
@@ -49,7 +49,7 @@ const SectionGridFeaturePlaces: FC<SectionGridFeaturePlacesProps> = ({
   return (
     <div className="nc-SectionGridFeaturePlaces relative">
       <HeaderFilter
-        tabActive={"New York"}
+        tabActive={"All"}
         subHeading={subHeading}
         tabs={tabs}
         heading={heading}

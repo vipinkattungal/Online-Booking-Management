@@ -18,47 +18,47 @@ const DEMO_CATS: TaxonomyType[] = [
   {
     id: "1",
     href: "/listing-stay-map",
-    name: "New Yourk",
+    name: "Bangalore",
     taxonomy: "category",
     count: 188288,
     thumbnail:
-      "https://images.pexels.com/photos/64271/queen-of-liberty-statue-of-liberty-new-york-liberty-statue-64271.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260",
+      "https://images.pexels.com/photos/739987/pexels-photo-739987.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
   },
   {
     id: "2",
     href: "/listing-stay-map",
-    name: "Singapore",
+    name: "Mysore",
     taxonomy: "category",
     count: 188288,
     thumbnail:
-      "https://images.pexels.com/photos/7740160/pexels-photo-7740160.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+      "https://images.pexels.com/photos/16054008/pexels-photo-16054008/free-photo-of-hallway-in-sintra-palace-portugal.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
   },
   {
     id: "3",
     href: "/listing-stay-map",
-    name: "Paris",
+    name: "Mangalore",
     taxonomy: "category",
     count: 188288,
     thumbnail:
-      "https://images.pexels.com/photos/739407/pexels-photo-739407.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+      "https://images.pexels.com/photos/29913282/pexels-photo-29913282/free-photo-of-historic-clock-tower-in-mangaluru-india.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
   },
   {
     id: "4",
     href: "/listing-stay-map",
-    name: "London",
+    name: "Hydrabad",
     taxonomy: "category",
     count: 188288,
     thumbnail:
-      "https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260",
+      "https://images.pexels.com/photos/2430972/pexels-photo-2430972.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
   },
   {
     id: "5",
     href: "/listing-stay-map",
-    name: "Tokyo",
+    name: "Tamilnadu",
     taxonomy: "category",
     count: 188288,
     thumbnail:
-      "https://images.pexels.com/photos/4151484/pexels-photo-4151484.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260",
+      "https://images.pexels.com/photos/10588471/pexels-photo-10588471.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
   },
   {
     id: "6",
@@ -171,7 +171,7 @@ function PageHome() {
             categories={DEMO_CATS_2}
             categoryCardType="card4"
             itemPerRow={4}
-            heading="Suggestions for discovery"
+            heading=" for discovery"
             subHeading="Popular places to stay that Chisfis recommends for you"
             sliderStyle="style2"
           />
@@ -188,7 +188,6 @@ function PageHome() {
 
         <div className="relative py-16">
           <BackgroundSection />
-          <SectionBecomeAnAuthor />
         </div>
 
         <SectionSliderNewCategories

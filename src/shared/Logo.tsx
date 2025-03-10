@@ -1,5 +1,5 @@
 import React from "react";
-import logoImg from "@/images/logo.png";
+import logoImg from "@/images/logos01.png";
 import logoLightImg from "@/images/logo-light.png";
 import LogoSvgLight from "./LogoSvgLight";
 import LogoSvg from "./LogoSvg";
@@ -23,14 +23,14 @@ const Logo: React.FC<LogoProps> = ({
       className={`ttnc-logo inline-block text-primary-6000 focus:outline-none focus:ring-0 ${className}`}
     >
       <LogoSvgLight />
-      <LogoSvg />
+      {/* <LogoSvg /> */}
 
       {/* THIS USE FOR MY CLIENT */}
       {/* PLEASE UN COMMENT BELLOW CODE AND USE IT */}
-      {/* {img ? (
+      {img ? (
         <img
           className={`block max-h-12 ${imgLight ? "dark:hidden" : ""}`}
-          src={img}
+          src={img.src}  // <-- Use `img.src` instead of `logoImg1`
           alt="Logo"
         />
       ) : (
@@ -39,10 +39,10 @@ const Logo: React.FC<LogoProps> = ({
       {imgLight && (
         <img
           className="hidden max-h-12 dark:block"
-          src={imgLight}
+          src={imgLight.src}  // <-- Use `imgLight.src`
           alt="Logo-Light"
         />
-      )} */}
+      )}
     </Link>
   );
 };

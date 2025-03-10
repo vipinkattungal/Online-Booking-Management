@@ -32,37 +32,34 @@ const SectionOurFeatures: FC<SectionOurFeaturesProps> = ({
         <span className="uppercase text-sm text-gray-400 tracking-widest">
           BENnefits
         </span>
-        <h2 className="font-semibold text-4xl mt-5">Happening cities </h2>
+        <h2 className="font-semibold text-4xl mt-5">Get scholarship  </h2>
 
         <ul className="space-y-10 mt-16">
           <li className="space-y-4">
             <Badge name="Advertising" />
             <span className="block text-xl font-semibold">
-              Cost-effective advertising
+            Students can apply from anywhere, anytime.
             </span>
             <span className="block mt-5 text-neutral-500 dark:text-neutral-400">
-              With a free listing, you can advertise your rental with no upfront
-              costs
+            Browse and compare various colleges and courses in one place.
             </span>
           </li>
           <li className="space-y-4">
             <Badge color="green" name="Exposure " />
             <span className="block text-xl font-semibold">
-              Reach millions with Chisfis
+            Instant application submission and quicker responses.
             </span>
             <span className="block mt-5 text-neutral-500 dark:text-neutral-400">
-              Millions of people are searching for unique places to stay around
-              the world
+            Clear details about courses, fees, eligibility, and admission criteria.
             </span>
           </li>
           <li className="space-y-4">
             <Badge color="red" name="Secure" />
             <span className="block text-xl font-semibold">
-              Secure and simple
+            Automated application tracking and document verification
             </span>
             <span className="block mt-5 text-neutral-500 dark:text-neutral-400">
-              A Holiday Lettings listing gives you a secure and easy way to take
-              bookings and payments online
+            Automated tracking and verification ensure real-time updates, fewer errors, and faster admissions.
             </span>
           </li>
         </ul>

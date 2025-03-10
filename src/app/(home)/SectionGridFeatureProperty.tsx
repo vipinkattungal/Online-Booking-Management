@@ -20,7 +20,7 @@ export interface SectionGridFeaturePropertyProps {
 const SectionGridFeatureProperty: FC<SectionGridFeaturePropertyProps> = ({
   stayListings = DEMO_DATA,
   gridClass = "",
-  heading = "Featured places to stay",
+  heading = "Top Colleges to Apply",
   subHeading = "Popular places to stay that Chisfis recommends for you",
   headingIsCenter,
   tabs = ["New York", "Tokyo", "Paris", "London"],

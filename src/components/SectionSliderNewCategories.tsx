@@ -100,7 +100,7 @@ const DEMO_CATS: TaxonomyType[] = [
 ];
 
 const SectionSliderNewCategories: FC<SectionSliderNewCategoriesProps> = ({
-  heading = "Suggestions for discovery",
+  heading = "Suggestions for Top city's",
   subHeading = "Popular places to recommends for you",
   className = "",
   itemClassName = "",
@@ -111,24 +111,21 @@ const SectionSliderNewCategories: FC<SectionSliderNewCategoriesProps> = ({
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
-  const [numberOfItems, setNumberOfitem] = useState(0);
+  const [numberOfItems, setNumberOfItems] = useState(0);
 
   const windowWidth = useWindowSize().width;
   useEffect(() => {
     if (windowWidth < 320) {
-      return setNumberOfitem(1);
+      setNumberOfItems(1);
+    } else if (windowWidth < 500) {
+      setNumberOfItems(itemPerRow - 3);
+    } else if (windowWidth < 1024) {
+      setNumberOfItems(itemPerRow - 2);
+    } else if (windowWidth < 1280) {
+      setNumberOfItems(itemPerRow - 1);
+    } else {
+      setNumberOfItems(itemPerRow);
     }
-    if (windowWidth < 500) {
-      return setNumberOfitem(itemPerRow - 3);
-    }
-    if (windowWidth < 1024) {
-      return setNumberOfitem(itemPerRow - 2);
-    }
-    if (windowWidth < 1280) {
-      return setNumberOfitem(itemPerRow - 1);
-    }
-
-    setNumberOfitem(itemPerRow);
   }, [itemPerRow, windowWidth]);
 
   function changeItemId(newVal: number) {
@@ -200,7 +197,7 @@ const SectionSliderNewCategories: FC<SectionSliderNewCategoriesProps> = ({
                     variants={variants(200, 1)}
                     key={indx}
                     style={{
-                      width: `calc(1/${numberOfItems} * 100%)`,
+                      width: `calc(100% / ${numberOfItems})`,
                     }}
                   >
                     {renderCard(item)}
@@ -210,21 +207,21 @@ const SectionSliderNewCategories: FC<SectionSliderNewCategoriesProps> = ({
             </motion.ul>
           </div>
 
-          {currentIndex ? (
+          {currentIndex > 0 && (
             <PrevBtn
               style={{ transform: "translate3d(0, 0, 0)" }}
               onClick={() => changeItemId(currentIndex - 1)}
               className="w-9 h-9 xl:w-12 xl:h-12 text-lg absolute -left-3 xl:-left-6 top-1/3 -translate-y-1/2 z-[1]"
             />
-          ) : null}
+          )}
 
-          {categories.length > currentIndex + numberOfItems ? (
+          {categories.length > currentIndex + numberOfItems && (
             <NextBtn
               style={{ transform: "translate3d(0, 0, 0)" }}
               onClick={() => changeItemId(currentIndex + 1)}
               className="w-9 h-9 xl:w-12 xl:h-12 text-lg absolute -right-3 xl:-right-6 top-1/3 -translate-y-1/2 z-[1]"
             />
-          ) : null}
+          )}
         </div>
       </MotionConfig>
     </div>
