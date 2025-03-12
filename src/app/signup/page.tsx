@@ -1,4 +1,6 @@
+// filepath: c:\Users\pc\Documents\GitHub\Online-Booking-Management\src\app\signup\page.tsx
 import React, { FC } from "react";
+import { signIn } from "next-auth/react";
 import facebookSvg from "@/images/Facebook.svg";
 import twitterSvg from "@/images/Twitter.svg";
 import googleSvg from "@/images/Google.svg";
@@ -14,16 +16,19 @@ const loginSocials = [
     name: "Continue with Facebook",
     href: "#",
     icon: facebookSvg,
+    provider: "facebook",
   },
   {
     name: "Continue with Twitter",
     href: "#",
     icon: twitterSvg,
+    provider: "twitter",
   },
   {
     name: "Continue with Google",
     href: "#",
     icon: googleSvg,
+    provider: "google",
   },
 ];
 
@@ -37,9 +42,9 @@ const PageSignUp: FC<PageSignUpProps> = ({}) => {
         <div className="max-w-md mx-auto space-y-6 ">
           <div className="grid gap-3">
             {loginSocials.map((item, index) => (
-              <a
+              <button
                 key={index}
-                href={item.href}
+                onClick={() => signIn(item.provider, { callbackUrl: process.env.NEXTAUTH_URL })}
                 className="nc-will-change-transform flex w-full rounded-lg bg-primary-50 dark:bg-neutral-800 px-4 py-3 transform transition-transform sm:px-6 hover:translate-y-[-2px]"
               >
                 <Image
@@ -50,7 +55,7 @@ const PageSignUp: FC<PageSignUpProps> = ({}) => {
                 <h3 className="flex-grow text-center text-sm font-medium text-neutral-700 dark:text-neutral-300 sm:text-sm">
                   {item.name}
                 </h3>
-              </a>
+              </button>
             ))}
           </div>
           {/* OR */}

@@ -171,8 +171,8 @@ function PageHome() {
             categories={DEMO_CATS_2}
             categoryCardType="card4"
             itemPerRow={4}
-            heading=" for discovery"
-            subHeading="Popular places to stay that Chisfis recommends for you"
+            heading="Top Colleges Handpicked for You"
+            subHeading="Featured Colleges Recommended Just for You"
             sliderStyle="style2"
           />
         </div>

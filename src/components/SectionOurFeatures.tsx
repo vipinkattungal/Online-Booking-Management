@@ -30,7 +30,8 @@ const SectionOurFeatures: FC<SectionOurFeaturesProps> = ({
         }`}
       >
         <span className="uppercase text-sm text-gray-400 tracking-widest">
-          BENnefits
+          
+Benefits
         </span>
         <h2 className="font-semibold text-4xl mt-5">Get scholarship  </h2>
 
