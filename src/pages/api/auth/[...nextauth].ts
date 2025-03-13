@@ -1,8 +1,8 @@
-// filepath: c:\Users\pc\Documents\GitHub\Online-Booking-Management\src\pages\api\auth\[...nextauth].ts
 import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import FacebookProvider from "next-auth/providers/facebook";
 import TwitterProvider from "next-auth/providers/twitter";
+import prisma from "@/lib/prisma"; // Import the Prisma client instance
 
 export default NextAuth({
   providers: [
@@ -33,6 +33,27 @@ export default NextAuth({
       session.accessToken = token.accessToken;
       console.log("Session Callback - Session:", session);
       return session;
+    },
+    async signIn({ user, account, profile }) {
+      // Save user details to the database
+      try {
+        await prisma.user.upsert({
+          where: { email: user.email },
+          update: {
+            name: user.name,
+            image: user.image,
+          },
+          create: {
+            name: user.name,
+            email: user.email,
+            image: user.image,
+          },
+        });
+        return true;
+      } catch (error) {
+        console.error("Error saving user to database:", error);
+        return false;
+      }
     },
   },
   pages: {
