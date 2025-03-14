@@ -30,8 +30,8 @@ const ErrorPage = () => {
     <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold mb-4">Error</h1>
       <p className="mb-4">{errorMessage}</p>
-      <Link href="/signup">
-        <a className="text-blue-500 underline">Go back to sign up</a>
+      <Link href="/">
+        Go back to sign up
       </Link>
     </div>
   );

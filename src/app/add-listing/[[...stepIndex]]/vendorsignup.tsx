@@ -2,12 +2,12 @@
 
 import React, { FC, useState } from "react";
 import Input from "@/shared/Input";
-import FormItem from "../FormItem";
+import FormItem from "@/app/add-listing/FormItem";
 import Button from "@/shared/Button";
 
 export interface PageAddListing1Props {}
 
-const PageAddListing1: FC<PageAddListing1Props> = () => {
+const VendorSignup: FC<PageAddListing1Props> = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -84,4 +84,4 @@ const PageAddListing1: FC<PageAddListing1Props> = () => {
   );
 };
 
-export default PageAddListing1;
+export default VendorSignup;

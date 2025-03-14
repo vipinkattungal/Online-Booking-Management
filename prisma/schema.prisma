@@ -1,7 +1,6 @@
-// filepath: c:\Users\pc\Documents\GitHub\Online-Booking-Management\prisma\schema.prisma
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+  url      = "postgresql://postgres:123@localhost:5432/mydatabase"
 }
 
 generator client {
@@ -18,6 +17,8 @@ model User {
   updatedAt      DateTime  @updatedAt
   accounts       Account[]
   sessions       Session[]
+  applications   Application[]
+  payments       Payment[]
 }
 
 model Account {
@@ -38,4 +39,102 @@ model Session {
   expires      DateTime
   sessionToken String   @unique
   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model College {
+  id           Int      @id @default(autoincrement())
+  name         String
+  email        String  @unique
+  password     String
+  phone        String?
+  address      String?
+  city         String?
+  state        String?
+  country      String?
+  pincode      String?
+  description  String?
+  website      String?
+  mapLocation  String?
+  logo         String?
+  brochure     String?
+  createdAt    DateTime @default(now())
+
+  courses      Course[]
+  media        CollegeMedia[]
+  applications Application[]
+  payments     Payment[]
+}
+
+model Course {
+  id             Int      @id @default(autoincrement())
+  collegeId      Int
+  name           String
+  duration       String
+  seatsAvailable Int
+  eligibility    String?
+  feeStructure   Float
+  description    String?
+
+  college        College  @relation(fields: [collegeId], references: [id], onDelete: Cascade)
+  applications   Application[]
+  payments       Payment[]
+}
+
+model CollegeMedia {
+  id           Int      @id @default(autoincrement())
+  collegeId    Int
+  mediaType    MediaType
+  mediaUrl     String
+  title        String?
+  description  String?
+  uploadedAt   DateTime @default(now())
+
+  college      College  @relation(fields: [collegeId], references: [id], onDelete: Cascade)
+}
+
+enum MediaType {
+  IMAGE
+  VIDEO
+  EVENT
+}
+
+model Application {
+  id                Int         @id @default(autoincrement())
+  userId            String
+  collegeId         Int
+  courseId          Int
+  applicationStatus AppStatus   @default(PENDING)
+  appliedAt         DateTime    @default(now())
+
+  user              User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  college           College     @relation(fields: [collegeId], references: [id], onDelete: Cascade)
+  course            Course      @relation(fields: [courseId], references: [id], onDelete: Cascade)
+}
+
+enum AppStatus {
+  PENDING
+  APPROVED
+  REJECTED
+  WAITLISTED
+}
+
+model Payment {
+  id            Int      @id @default(autoincrement())
+  userId        String
+  collegeId     Int
+  courseId      Int
+  amountPaid    Float
+  paymentStatus PaymentStatus @default(PENDING)
+  transactionId String?
+  paymentDate   DateTime @default(now())
+
+  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  college       College  @relation(fields: [collegeId], references: [id], onDelete: Cascade)
+  course        Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+}
+
+enum PaymentStatus {
+  PENDING
+  COMPLETED
+  FAILED
 }

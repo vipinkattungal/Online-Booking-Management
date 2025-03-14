@@ -1,23 +1,19 @@
 "use client";
 
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 import Input from "@/shared/Input";
 import FormItem from "../FormItem";
 import Button from "@/shared/Button";
+import useFormStore from "@/store/useFormStore";
 
 export interface PageAddListing1Props {}
 
 const PageAddListing1: FC<PageAddListing1Props> = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    password: "",
-    phoneNumber: "",
-  });
+  const { formData, setFormData } = useFormStore();
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    setFormData({ [name]: value });
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -31,6 +27,21 @@ const PageAddListing1: FC<PageAddListing1Props> = () => {
       <div className="w-14 border-b border-neutral-200 dark:border-neutral-700"></div>
       {/* FORM */}
       <form onSubmit={handleSubmit} className="space-y-8">
+        {/* TYPE SELECTION */}
+        <FormItem
+          label="Type"
+          desc="Select the type of signup."
+        >
+          <select
+            name="type"
+            value={formData.type}
+            onChange={handleChange}
+            className="w-full p-2 border border-neutral-300 rounded-md"
+          >
+            <option value="college">College</option>
+            <option value="agent">Agent</option>
+          </select>
+        </FormItem>
         {/* ITEM */}
         <FormItem
           label="Name"
